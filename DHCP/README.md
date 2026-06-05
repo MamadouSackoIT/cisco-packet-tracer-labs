@@ -2,34 +2,44 @@
 
 ## Objectif
 
-Mettre en place un serveur DHCP afin d'attribuer automatiquement les adresses IP aux postes clients.
-
-## Technologies utilisées
-
-- Cisco Packet Tracer
-- DHCP
-- IPv4
-- Routeur Cisco
-- Switch Cisco
+Mettre en place un serveur DHCP afin d'attribuer automatiquement des adresses IP aux postes clients du réseau.
 
 ## Topologie
 
-(Capture de la topologie à ajouter)
+![Topologie](topologie.png)
 
-## Étapes réalisées
+## Configuration du serveur DHCP
 
-1. Configuration du routeur
-2. Création du pool DHCP
-3. Configuration des postes clients
-4. Vérification de l'attribution automatique des adresses IP
+Le serveur DHCP a été configuré avec les paramètres suivants :
+
+- Réseau : 1.0.0.0/8
+- Adresse de départ : 1.1.1.100
+- Nombre maximal d'utilisateurs : 100
+
+![Configuration DHCP](serveur-dhcp.png)
+
+## Vérification des postes clients
+
+### PC0
+
+Adresse IP attribuée automatiquement :
+
+![PC0](pc0-dhcp.png)
+
+### PC1
+
+Adresse IP attribuée automatiquement :
+
+![PC1](pc1-dhcp.png)
 
 ## Résultat
 
-Les postes clients reçoivent automatiquement une adresse IP et peuvent communiquer sur le réseau.
+Les postes clients obtiennent automatiquement une adresse IP grâce au serveur DHCP.
 
 ## Compétences développées
 
 - Configuration DHCP
 - Adressage IPv4
-- Diagnostic réseau
-- Vérification de la connectivité
+- Administration réseau
+- Diagnostic de connectivité
+- Cisco Packet Tracer
