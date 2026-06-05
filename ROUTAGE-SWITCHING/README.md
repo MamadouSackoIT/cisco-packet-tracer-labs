@@ -1,44 +1,90 @@
-# Communication entre plusieurs équipements réseau
+# Communication entre deux réseaux via un routeur
 
 ## Objectif
 
-Mettre en place un réseau simple permettant la communication entre plusieurs équipements à l'aide de routeurs et de switchs.
+Mettre en place une communication entre deux réseaux distincts à l'aide d'un routeur Cisco.
 
 ## Technologies utilisées
 
 - Cisco Packet Tracer
-- Routeurs Cisco
-- Switchs Cisco
+- Routeur Cisco ISR4331
+- Switch Cisco 2960
 - IPv4
 - TCP/IP
 
 ## Topologie
 
-(Capture de la topologie à ajouter)
+![Topologie](topologie.png)
 
-## Étapes réalisées
+Le laboratoire est composé :
 
-1. Connexion des équipements réseau
-2. Configuration des interfaces réseau
-3. Attribution des adresses IP
-4. Vérification de la connectivité entre les équipements
-5. Réalisation de tests de communication avec la commande Ping
+- d'un réseau 192.168.0.0/24
+- d'un réseau 192.168.100.0/24
+- d'un routeur assurant l'interconnexion
+- de plusieurs postes clients
+- de serveurs présents sur chaque réseau
+
+## Configuration du routeur
+
+### Interface réseau gauche
+
+- Adresse IP : 192.168.0.254
+- Masque : 255.255.255.0
+
+![Interface gauche](routeur-reseau-gauche.png)
+
+### Interface réseau droite
+
+- Adresse IP : 192.168.100.254
+- Masque : 255.255.255.0
+
+![Interface droite](routeur-reseau-droite.png)
+
+## Configuration des passerelles par défaut
+
+### Réseau 192.168.0.0/24
+
+Passerelle :
+
+```text
+192.168.0.254
+```
+
+![Gateway gauche](gateway-reseau-gauche.png)
+
+### Réseau 192.168.100.0/24
+
+Passerelle :
+
+```text
+192.168.100.254
+```
+
+![Gateway droite](gateway-reseau-droite.png)
+
+## Vérification de la connectivité
+
+### Tests depuis le réseau 192.168.0.0
+
+![Ping gauche](ping-reseau-gauche.png)
+
+### Tests depuis le réseau 192.168.100.0
+
+![Ping droite](ping-reseau-droite.png)
 
 ## Résultat
 
-Les postes du réseau peuvent communiquer entre eux grâce à la configuration correcte des équipements et des adresses IP.
+Les équipements appartenant aux deux réseaux peuvent communiquer grâce au routeur qui assure le routage entre les sous-réseaux.
 
-## Difficultés rencontrées
+## Démonstration vidéo
 
-- Compréhension du rôle du routeur et du switch
-- Configuration des adresses IP sur les différentes interfaces
-- Identification des erreurs empêchant la communication entre les équipements
+Une démonstration vidéo est disponible dans le dépôt afin de visualiser le transfert de paquets entre les deux réseaux.
 
 ## Compétences développées
 
+- Configuration d'interfaces réseau
 - Adressage IPv4
-- Configuration de routeurs Cisco
-- Configuration de switchs Cisco
+- Configuration de passerelles par défaut
+- Routage inter-réseaux
 - Diagnostic réseau
-- Tests de connectivité
-- Compréhension des bases du routage et du switching
+- Cisco Packet Tracer
