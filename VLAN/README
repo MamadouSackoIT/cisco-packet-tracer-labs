@@ -1,0 +1,40 @@
+# Configuration de VLANs
+
+## Objectif
+
+Mettre en place des VLANs afin de segmenter un réseau local et isoler les différents groupes de machines tout en améliorant les performances et la sécurité.
+
+---
+
+## Compétences mises en œuvre
+
+- Création de VLANs sur un switch Cisco
+- Attribution des ports aux VLANs
+- Vérification de l'appartenance des interfaces
+- Segmentation du trafic réseau
+- Tests de connectivité entre les différents VLANs
+
+---
+
+## Technologies utilisées
+
+- Cisco Packet Tracer
+- Switch Cisco
+- VLAN (IEEE 802.1Q)
+
+---
+
+## Résultat
+
+Le réseau est segmenté en plusieurs VLANs permettant de séparer les postes selon leur groupe d'appartenance. Les communications sont limitées aux machines d'un même VLAN en l'absence de routage inter-VLAN.
+
+---
+
+## Captures d'écran
+
+Vous trouverez dans ce dossier les captures illustrant :
+
+- La topologie du réseau
+- La configuration des VLANs
+- L'affectation des ports
+- Les tests de connectivité
