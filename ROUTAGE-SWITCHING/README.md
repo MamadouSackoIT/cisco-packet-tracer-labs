@@ -1,90 +1,84 @@
-# Communication entre deux réseaux via un routeur
+# 🌐 Laboratoire Routage & Switching – Cisco Packet Tracer
 
-## Objectif
+## 📌 Présentation du projet
 
-Mettre en place une communication entre deux réseaux distincts à l'aide d'un routeur Cisco.
+Ce laboratoire consiste à mettre en place **deux réseaux locaux distincts**, interconnectés à l'aide d'un routeur Cisco dans Packet Tracer.
 
-## Technologies utilisées
+L'objectif est de comprendre le fonctionnement du **switching (commutation)** et du **routage inter-réseaux**, afin de permettre la communication entre des équipements appartenant à différents sous-réseaux.
 
-- Cisco Packet Tracer
-- Routeur Cisco ISR4331
-- Switch Cisco 2960
-- IPv4
-- TCP/IP
+## 🎯 Objectifs
 
-## Topologie
+- Créer deux réseaux locaux (LAN).
+- Connecter les équipements à des switches.
+- Configurer les interfaces d'un routeur Cisco.
+- Définir les adresses IP et les passerelles par défaut.
+- Permettre la communication entre deux sous-réseaux.
+- Vérifier la connectivité avec la commande `ping`.
 
-![Topologie](topologie.png)
+## 🛠️ Environnement technique
 
-Le laboratoire est composé :
+- **Logiciel :** Cisco Packet Tracer
+- **Équipements :** 1 routeur Cisco, 2 switches, 2 serveurs et plusieurs PC fixes et portables
+- **Protocoles :** IPv4, ICMP et Ethernet
+- **Adressage :** IPv4 statique
+- **Tests :** commandes ping
 
-- d'un réseau 192.168.0.0/24
-- d'un réseau 192.168.100.0/24
-- d'un routeur assurant l'interconnexion
-- de plusieurs postes clients
-- de serveurs présents sur chaque réseau
+## ⚙️ Configuration réalisée
 
-## Configuration du routeur
+### 1. Création de la topologie réseau
 
-### Interface réseau gauche
+Mise en place de deux réseaux locaux comprenant chacun plusieurs postes utilisateurs, un serveur et un switch.
 
-- Adresse IP : 192.168.0.254
-- Masque : 255.255.255.0
+Les deux switches sont connectés à un routeur central qui assure la communication entre les sous-réseaux.
 
-![Interface gauche](routeur-reseau-gauche.png)
+### 2. Configuration des sous-réseaux
 
-### Interface réseau droite
+| Paramètre | Réseau 1 | Réseau 2 |
+|---|---|---|
+| Adresse réseau | 192.168.0.0/24 | 192.168.100.0/24 |
+| Masque | 255.255.255.0 | 255.255.255.0 |
+| Passerelle | 192.168.0.254 | 192.168.100.254 |
 
-- Adresse IP : 192.168.100.254
-- Masque : 255.255.255.0
+### 3. Configuration du routeur
 
-![Interface droite](routeur-reseau-droite.png)
+Configuration des interfaces GigabitEthernet du routeur Cisco :
 
-## Configuration des passerelles par défaut
+- **GigabitEthernet0/0/0 :** 192.168.0.254/24
+- **GigabitEthernet0/0/1 :** 192.168.100.254/24
 
-### Réseau 192.168.0.0/24
+Le routeur permet d'acheminer les paquets entre les deux réseaux directement connectés.
 
-Passerelle :
+### 4. Configuration des postes clients
 
-```text
-192.168.0.254
-```
+Attribution des adresses IPv4 aux équipements et configuration des passerelles par défaut.
 
-![Gateway gauche](gateway-reseau-gauche.png)
+Chaque poste utilise l'adresse de l'interface du routeur correspondant à son réseau local.
 
-### Réseau 192.168.100.0/24
+### 5. Vérification de la connectivité
 
-Passerelle :
+Réalisation de tests avec la commande `ping` depuis différents équipements :
 
-```text
-192.168.100.254
-```
+- Communication entre les postes d'un même réseau.
+- Communication entre des équipements de réseaux différents.
+- Vérification des échanges entre les postes et les serveurs.
 
-![Gateway droite](gateway-reseau-droite.png)
+Les captures montrent des réponses ICMP positives entre les deux sous-réseaux.
 
-## Vérification de la connectivité
+Certains premiers tests présentent une perte ponctuelle de paquet, suivie de réponses réussies.
 
-### Tests depuis le réseau 192.168.0.0
+## ✅ Résultats et compétences acquises
 
-![Ping gauche](ping-reseau-gauche.png)
+Ce laboratoire m'a permis de travailler sur :
 
-### Tests depuis le réseau 192.168.100.0
+- La compréhension du **switching et du routage**.
+- La création et l'interconnexion de **deux LAN**.
+- La configuration des **interfaces d'un routeur Cisco**.
+- L'adressage IPv4 et les **masques de sous-réseau**.
+- La configuration des **passerelles par défaut**.
+- Le diagnostic réseau avec **ICMP et ping**.
 
-![Ping droite](ping-reseau-droite.png)
+**Résultat :** les deux réseaux locaux peuvent communiquer grâce au routeur Cisco. Les tests réalisés confirment le fonctionnement du routage inter-réseaux.
 
-## Résultat
+---
 
-Les équipements appartenant aux deux réseaux peuvent communiquer grâce au routeur qui assure le routage entre les sous-réseaux.
-
-## Démonstration vidéo
-
-Une démonstration vidéo est disponible dans le dépôt afin de visualiser le transfert de paquets entre les deux réseaux.
-
-## Compétences développées
-
-- Configuration d'interfaces réseau
-- Adressage IPv4
-- Configuration de passerelles par défaut
-- Routage inter-réseaux
-- Diagnostic réseau
-- Cisco Packet Tracer
+**Projet personnel réalisé dans le cadre de ma reconversion vers les métiers des systèmes et réseaux.**
